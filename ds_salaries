@@ -1,0 +1,28 @@
+import pandas as pd
+import io
+import matplotlib.pyplot as plt
+
+path = "/content/drive/MyDrive/dataset/ds_salaries.csv"
+df = pd.read_csv(path)
+df = df.drop_duplicates() #removes any duplicates 
+df = df[['work_year', 'experience_level', 'employment_type', 
+         'salary_in_usd', 'remote_ratio', 'company_location', 'company_size' ]] #choosing relevant columns 
+
+#finding averages=
+mean_salary = df["salary_in_usd"].mean()
+median_salary = df["salary_in_usd"].median()
+mode_salary = df["salary_in_usd"].mode()
+print(" The mean, median, mode of salaries in USD are:", mean_salary , ", ", median_salary, ",", mode_salary)
+
+#print (df.head(30))
+print (df.corr(numeric_only = True)) #explains the relationship between columns with numerical values 
+#the scale for corr is -1 to 1
+#1 means that there is a 1 to 1 relationship (a perfect correlation)
+#-1 means there is an inverse correlation 
+#closer to 0 on either side means that there isn't an obvious or apparent correlation.
+
+# plotting data 
+
+df.plot(kind = 'scatter', x = 'experience_level', y = 'salary_in_usd')
+plt.show()
+#sorting data 
