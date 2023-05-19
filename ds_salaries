@@ -25,4 +25,6 @@ print (df.corr(numeric_only = True)) #explains the relationship between columns 
 
 df.plot(kind = 'scatter', x = 'experience_level', y = 'salary_in_usd')
 plt.show()
-#sorting data 
+
+#sorting data in descending order 
+df.sort_values(by='salary_in_usd', ascending=False)
