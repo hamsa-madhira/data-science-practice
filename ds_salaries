@@ -28,3 +28,5 @@ plt.show()
 
 #sorting data in descending order 
 df.sort_values(by='salary_in_usd', ascending=False)
+df.sort_values(by=['work_year', 'salary_in_usd'])
+
